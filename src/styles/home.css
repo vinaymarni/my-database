@@ -1,0 +1,231 @@
+.homepageMainCon{
+    display: flex;
+    width: 100%;
+}
+
+.homepageLeftSideBar{
+    width: 140px;
+    height: 100vh;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap:20px;
+    padding: 30px;
+}
+
+.homepageSidebarImgs{
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.homepageRightSideBar{
+    width: 100%;
+    padding: 20px;
+}
+
+.homepageToolIcons{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top:2px;
+}
+
+.homepageCardsDisplayCon{
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    gap:16px;
+}
+
+.InstanceCard{
+    height: 100px;
+    width: 300px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 10px;
+    background-color: rgb(213, 211, 211);
+    cursor: pointer;
+}
+
+.instanceCardIcon{
+    max-width: 20px;
+    max-height: 20px;
+    position: relative;
+    top: 2px;
+    margin-right: 10px;
+}
+
+.InstanceCardHeading{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.InstanceCardText{
+    font-size: 18px;
+    gap:10px;
+    margin-top: 4px;
+}
+
+.homepageRightSideHeading{
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    gap:10px;
+}
+
+ /* popup css */
+
+.projectPopupStaticCon{
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 3;
+}
+    
+.projectPopupinnerPopupCon{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80%;
+    flex-shrink: 0;
+    padding: 14px;
+    position: relative;
+    z-index: 3;
+    height:94%;
+
+    border-radius: 4px;
+    border: 0.5px solid #607B96;
+    background: rgb(248, 245, 245);
+    box-shadow: 0px 4px 20px 0px rgba(194, 194, 194, 0.10);
+    flex-direction: column;
+}
+
+.projectPopupHeaderCon{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    width: 100%;
+    gap:10px;
+}
+
+.resumePopupHeading{
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1.12px;
+}
+
+.resumePopupHeading img{
+    width: 20px;
+    height: 20px;
+}
+
+.popupCrossIcon svg{
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+
+.resumeContainer {
+    width: 100%;
+    height: 100%;
+    margin-top:10px;
+    padding: 20px;
+}
+
+.popupFooter{
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.NewInstancePopupButton{
+    border: 1px solid gray;
+    border-radius:4px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.addInstanceNameFieldCon{
+    width: 100%;
+    display: flex;
+    gap:10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.instanceNameDropdownMainCon{
+    width: 100%;
+}
+
+.addInstanceNameField{
+    height: 30px;
+    width: auto;
+    width: 100%;
+    border-radius: 4px;
+    padding-left: 6px;
+}
+
+.addInstanceNameLable{
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.popupSectionsBtnsCon{
+    display: flex;
+    align-items: center;
+}
+
+.popupSectionsBtn{
+    text-transform: capitalize;
+    font-size: 16px;
+    padding: 2px;
+    background-color: white;
+    border: 1px solid gray;
+    padding-left: 4px;
+    padding-right: 4px
+}
+
+.popupSectionsFormsCon{
+    border: 1px solid gray;
+    padding: 10px;
+    max-height: 100%;
+    
+}
+
+.selectedSectionsBtn{
+    background-color: rgb(234, 233, 233);
+    border: 1px solid gray;
+}
+
+.horOrderCon{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+.portFieldCon{
+    max-width: 40%;
+}
