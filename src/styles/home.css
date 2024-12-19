@@ -31,6 +31,7 @@
     height: 20px;
     position: relative;
     top:2px;
+    cursor: pointer;
 }
 
 .homepageCardsDisplayCon{
@@ -108,12 +109,16 @@
     position: relative;
     z-index: 3;
     height:94%;
-
     border-radius: 4px;
     border: 0.5px solid #607B96;
     background: rgb(248, 245, 245);
     box-shadow: 0px 4px 20px 0px rgba(194, 194, 194, 0.10);
     flex-direction: column;
+}
+
+.selectInstancePopupCon{
+    width: 500px;
+    height: auto;
 }
 
 .projectPopupHeaderCon{
@@ -155,6 +160,7 @@
     justify-content: flex-end;
     align-items: flex-end;
     width: 100%;
+    gap:10px;
 }
 
 .NewInstancePopupButton{
@@ -229,3 +235,50 @@
 .portFieldCon{
     max-width: 40%;
 }
+
+.selectInsPopupContentBlock{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.selectInsPopupImgBlock{
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;border: 1px solid gray;
+}
+
+.selectInsPopupDataBlock{
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    flex-direction: column;
+}
+
+.selectInsPopupLable{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.selectInsPopupLable span{
+    font-weight: 400 ;
+}
+
+.selectInstancePopupHeading{
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1.12px;
+    gap:6px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.selectInstancePopupHeading img{
+    width: 18px;
+    height: 18px;
+}
+

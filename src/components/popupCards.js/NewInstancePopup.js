@@ -92,7 +92,6 @@ export default function NewInstancePopup({onPopup}) {
                   key="NewInstancePopupButton"
                   buttonId="NewInstancePopupButton"
                   name="submit"
-                  value="submit"
                   onSubmit={onSubmit}
                   buttonClassName="NewInstancePopupButton"
                   title="OK"

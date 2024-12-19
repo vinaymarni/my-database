@@ -5,10 +5,9 @@ import { useAtom } from 'jotai';
 import { headerData } from '../../store/globalStates';
 import {  CrossIconSvg } from '../../commonElements/commonSvgs';
 
-
 function InstanceBar() {
   const [allHeaderData, setAllHeaderData] = useAtom(headerData);
-  const {instanceData, currentInstance} = allHeaderData;
+  const {selectedInstanceData, currentInstance} = allHeaderData;
 
   const onValueChange = (e, key, value) => {
     if(e){
@@ -17,7 +16,7 @@ function InstanceBar() {
       setAllHeaderData(prev => ({...prev, [name]: value}));
     }else{
       setAllHeaderData(prev => {
-        let oldData = [...prev.instanceData];
+        let oldData = [...prev.selectedInstanceData];
         let updatedList = oldData.filter((eachObj)=> eachObj.id !== value);
         return {...prev, [key]: updatedList};
       });
@@ -32,7 +31,7 @@ function InstanceBar() {
         onClick={(e) => onValueChange({target: { name: "currentInstance", value: null }})}
       />
 
-      {instanceData && instanceData.map((each, index) => {
+      {selectedInstanceData && selectedInstanceData.map((each, index) => {
         return (
           <Button 
             key={`instance_${index}`}
@@ -46,7 +45,7 @@ function InstanceBar() {
             icon={<CrossIconSvg 
               key={`instance_cross_${index}`}
               className="instanceButtonCrossIcon" 
-              onClick={()=>onValueChange(undefined, "instanceData", each.id)} 
+              onClick={()=>onValueChange(undefined, "selectedInstanceData", each.id)} 
             />}
           />
         )

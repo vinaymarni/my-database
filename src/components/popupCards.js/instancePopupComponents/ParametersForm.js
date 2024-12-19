@@ -42,7 +42,7 @@ function ParametersForm() {
                     value={port}
                     required={true}
                     placeholder="Enter port"
-                    inputType="number"
+                    inputType="text"
                     onChange={onValueChange}
                     labelName="Port:"
                     labelClassName="addInstanceNameLable"

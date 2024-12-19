@@ -1,6 +1,7 @@
 import { atom } from "jotai";
 
 const headerInitialData = {
+    selectedInstanceData: [],
     instanceData : [],
     currentInstance: null,
     tool: null,
