@@ -8,18 +8,18 @@ function InstanceCard({data, onPopup}) {
     const {hostName, port} = parameters;
 
     return (         
-            <div className="InstanceCard" onClick={()=>onPopup(true, "selectInstancePopup", data)}>
-                <p className="InstanceCardHeading">{name}</p>
-                <p className="InstanceCardText">
-                    <img alt="" src={user} className='instanceCardIcon' />
-                    {hostName}
-                </p>
-                <p className="InstanceCardText">
-                    <img alt="" src={databaseConnection} className='instanceCardIcon' />
-                    {port}
-                </p>
-            </div>
+        <div className="InstanceCard" onClick={()=>onPopup(true, "selectInstancePopup", data)}>
+            <p className="InstanceCardHeading">{name}</p>
+            <p className="InstanceCardText">
+                <img alt="" src={user} className='instanceCardIcon' />
+                {hostName}
+            </p>
+            <p className="InstanceCardText">
+                <img alt="" src={databaseConnection} className='instanceCardIcon' />
+                {port}
+            </p>
+        </div>
     )
-}
+};
 
 export default InstanceCard;

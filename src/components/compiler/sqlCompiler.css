@@ -1,0 +1,15 @@
+.SqlCompilerPad{
+    height: 100%;
+}
+
+.SqlCompilerToolBar{
+    display: flex;
+    align-items: center;
+    background-color: rgb(243, 240, 240);
+    padding: 4px;
+    padding-left: 10px;
+}
+
+.SqlCompilerRunBtn{
+    padding: 2px
+}

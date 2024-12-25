@@ -17,7 +17,7 @@ function InstanceBar() {
     }else{
       setAllHeaderData(prev => {
         let oldData = [...prev.selectedInstanceData];
-        let updatedList = oldData.filter((eachObj)=> eachObj.id !== value);
+        let updatedList = oldData.filter((eachObj)=> eachObj.instanceId !== value);
         return {...prev, [key]: updatedList};
       });
     }
@@ -31,21 +31,21 @@ function InstanceBar() {
         onClick={(e) => onValueChange({target: { name: "currentInstance", value: null }})}
       />
 
-      {selectedInstanceData && selectedInstanceData.map((each, index) => {
+      {selectedInstanceData && selectedInstanceData.map(each => {
         return (
           <Button 
-            key={`instance_${index}`}
-            buttonId={`instance_${index}`}
-            buttonClassName={`instanceButtons ${currentInstance == each.id ? "currentInstanceButtons" : ""}`}
+            key={`instance_${each.instanceId}`}
+            buttonId={`instance_${each.instanceId}`}
+            buttonClassName={`instanceButtons ${currentInstance == each.instanceId ? "currentInstanceButtons" : ""}`}
             name="currentInstance"
-            value={each.id}
+            value={each.instanceId}
             toolTip={`Click to Open ${each.name}`}
             onSubmit={(e) => onValueChange(e)}
             title={`${each.name} Instance`}
             icon={<CrossIconSvg 
-              key={`instance_cross_${index}`}
+              key={`instance_cross_${each.instanceId}`}
               className="instanceButtonCrossIcon" 
-              onClick={()=>onValueChange(undefined, "selectedInstanceData", each.id)} 
+              onClick={()=>onValueChange(undefined, "selectedInstanceData", each.instanceId)} 
             />}
           />
         )

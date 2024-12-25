@@ -32,7 +32,7 @@ export default function NewInstancePopup({onPopup}) {
 
       setData(initaialBasicData);
       onPopup(false);
-      console.log(data);
+      // console.log(data);
     }else{
       console.log("name alredy exist");
     }

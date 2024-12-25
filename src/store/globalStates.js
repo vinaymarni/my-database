@@ -12,7 +12,8 @@ const headerInitialData = {
 export const popupInitialState = {
     name: null,
     isOpen: false,
-    data: {}
+    data: {},
+    comfirmPassword: "",
 }
 
 export const initaialBasicData = {

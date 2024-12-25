@@ -263,6 +263,12 @@
     font-weight: 600;
 }
 
+.errorInstancePopupHeading{
+    color: #F00;
+    font-size: 16px;
+    font-weight: 600;
+}
+
 .selectInsPopupLable span{
     font-weight: 400 ;
 }

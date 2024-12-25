@@ -11,21 +11,27 @@ import { headerData, popupData, popupInitialState } from '../../store/globalStat
 import '../../styles/home.css';
 import NewInstancePopup from '../popupCards.js/NewInstancePopup';
 import SelectInstancePopup from '../popupCards.js/SelectInstancePopup';
+import ErrorInstancePopup from '../popupCards.js/ErrorInstancePopup';
 
 function Home() {
-    const [allHeaderData, setAllHeaderData] = useAtom(headerData);
-    const {instanceData, currentInstance} = allHeaderData;
+    const [{instanceData, selectedInstanceData}, setAllHeaderData] = useAtom(headerData);
     const [popup, setPopup] = useAtom(popupData);
 
     const onPopup = (status, popupName, data) => {
         switch (status){
             case true:
-                setPopup(prev => ({ 
-                    ...prev,  
-                    isOpen: true,
-                    name: popupName,
-                    data: data
-                }));
+                let selectedIds = selectedInstanceData.map(eachObj=>eachObj.id);
+                if(data === undefined || (data !== undefined && !selectedIds.includes(data.id))){
+                    setPopup(prev => ({ 
+                        ...prev,  
+                        isOpen: true,
+                        name: popupName,
+                        data: data
+                    }));
+                }else{
+                    let oldInstance = selectedInstanceData.filter(eachObj=>eachObj.id === data.id)[0];
+                    setAllHeaderData(prev => ({...prev, currentInstance: oldInstance.instanceId}));
+                }
                 break;
             case false:
                 setPopup(popupInitialState);
@@ -42,6 +48,11 @@ function Home() {
             {popup.isOpen && popup.name === "selectInstancePopup" &&
             <SelectInstancePopup onPopup={onPopup} />
             }
+
+            {popup.isOpen && popup.name === "errorInstancePopup" &&
+            <ErrorInstancePopup onPopup={onPopup} />
+            }
+
             <div className='homepageLeftSideBar'>
                 <img alt="" src={databaseCloud} className='homepageSidebarImgs' />
                 <img alt="" src={databaseConnection} className='homepageSidebarImgs' />

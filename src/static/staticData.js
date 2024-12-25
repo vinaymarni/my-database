@@ -77,7 +77,7 @@ export const onMainConClick = (event, id, setter, arg) => {
     var myElement = document.getElementById(id);
 
     if (myElement && !myElement.contains(event.target)) {
-        console.log('clicked outside');
+        // console.log('clicked outside');
         setter(arg);
     }
 };

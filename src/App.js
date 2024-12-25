@@ -1,6 +1,5 @@
 import { useAtom } from 'jotai';
 import './App.css';
-import FooterSection from './components/footerSection/FooterSection';
 import Home from './components/home/Home';
 import LeftSection from './components/leftSection/LeftSection';
 import RightSection from './components/rightSection/RightSection';
@@ -16,13 +15,12 @@ function App() {
         {allHeaderData.currentInstance === null ?
         <Home />
         :
-        <>
+        <> 
           <DbToolBar />
           <div className='AppMiddleCon'>
             <LeftSection />
             <RightSection />
           </div>
-          <FooterSection/>
         </>
         }
       </div>

@@ -6,35 +6,35 @@ import { useAtom } from "jotai";
 import { headerData, popupData } from "../../store/globalStates";
 
 export default function SelectInstancePopup({onPopup}) {
-    const [popup, setPopup] = useAtom(popupData);
-    const {data} = popup;
+    const [{data, comfirmPassword}, setPopup] = useAtom(popupData);
+    const {userName, port, password} = data.parameters;
+    
     const [,setAllHeaderData] = useAtom(headerData);
-
   
     const onValueChange = (e) => {
       if(e){
         let name = e.target.name;
         let value = e.target.value;
-        setPopup(prev => {
-          let oldObj = prev.data;
-          oldObj[name] = value;
-          return {...prev, data: oldObj};
-        })
+        setPopup(prev => ({ ...prev, [name]: value }))
       }
     };
 
-
   const onSubmit = () => {
-    if(data.parameters && data.parameters.password === data.password){
-      setAllHeaderData(prev => {
-        let oldData = [...prev.selectedInstanceData];
-        return {...prev, selectedInstanceData: [...oldData, data]};
-      });
-      onPopup(false);
+    if(comfirmPassword && comfirmPassword !== ""){
+      if(password && password === comfirmPassword){
+        const newData = {...data, instanceId : Math.ceil(Math.random()*1000)}
+        setAllHeaderData(prev => {
+          let oldData = [...prev.selectedInstanceData];  
+          return {...prev, selectedInstanceData: [...oldData, newData]};
+        });
+        onPopup(false);
+      }else{
+        // close popup and open error popup 
+        onPopup(true, "errorInstancePopup", data);
+      }
     }else{
-      // close popup and open error popup 
+      console.log("Please Enter Password");
     }
-
   };
 
   return (
@@ -53,18 +53,18 @@ export default function SelectInstancePopup({onPopup}) {
                 <div className="selectInsPopupImgBlock"></div>
                 <div className="selectInsPopupDataBlock">
                   <p className="selectInsPopupLable">Please Enter Password for the following service:</p>
-                  <p className="selectInsPopupLable">Service: <span>{data && data.name ? data.name : ""}</span></p>
-                  <p className="selectInsPopupLable">User: <span>{data && data.userName ? data.userName : ""}</span></p>
+                  <p className="selectInsPopupLable">Service: <span>{port ? port : ""}</span></p>
+                  <p className="selectInsPopupLable">User: <span>{userName ? userName : ""}</span></p>
                   <InputField 
                       key="selectInsPopupPasswordField"
                       inputId="selectInsPopupPasswordField"
-                      name="password"
-                      value={data && data.password ? data.password : "" } 
+                      name="comfirmPassword"
+                      value={comfirmPassword ? comfirmPassword : "" }
                       required={true}
                       placeholder="Type a name for the connection"
                       inputType="text"
                       onChange={onValueChange}
-                      labelName="Connection Name:"
+                      labelName="Password:"
                       labelClassName="selectInsPopupLable"
                       inputClassName="addInstanceNameField"
                       containerClass="addInstanceNameFieldCon"
