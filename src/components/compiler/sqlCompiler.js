@@ -5,16 +5,16 @@ import './sqlCompiler.css';
 const SqlCompiler = () => {
   const [code, setCode] = useState('SELECT * FROM users;');
   const [errors, setErrors] = useState([]);
-  const [hoverError, setHoverError] = useState(null); // To store the error being hovered over
-  const monaco = useMonaco(); // Get Monaco instance
-  const editorRef = useRef(null); // Store the editor instance
+  const [hoverError, setHoverError] = useState(null);
+  const monaco = useMonaco();
+  const editorRef = useRef(null);
 
   useEffect(() => {
-    if (!monaco) return; // Ensure Monaco is loaded before doing anything
-  }, [monaco]); // This effect runs only when Monaco is loaded
+    if (!monaco) return;
+  }, [monaco]);
 
   const handleRunCode = () => {
-    alert('SQL Code Executed:\n' + code);
+    console.log(code);
   };
 
   const handleEditorDidChangeModelContent = (editor) => {
@@ -26,13 +26,12 @@ const SqlCompiler = () => {
   };
 
   const handleEditorMount = (editor) => {
-    editorRef.current = editor; // Save the editor instance
+    editorRef.current = editor; 
     // Subscribe to the model content change event to check for syntax errors
     editor.onDidChangeModelContent((event) => {
-      handleEditorDidChangeModelContent(editor); // Call the function here to handle the content change
+      handleEditorDidChangeModelContent(editor);
     });
 
-    // Add hover event to display error message on hover
     editor.onMouseMove((event) => {
       if (editor) {
         try {
@@ -48,10 +47,9 @@ const SqlCompiler = () => {
               );
 
               if (marker) {
-                // Safely handle the message to ensure it's a string
-                setHoverError(String(marker.message || 'Unknown error')); // Use String() to convert to a string if necessary
+                setHoverError(String(marker.message || 'Unknown error'));
               } else {
-                setHoverError(null); // Reset when not hovering over an error
+                setHoverError(null); 
               }
             }
           }
@@ -63,7 +61,6 @@ const SqlCompiler = () => {
   };
 
   if (!monaco) {
-    // Monaco is not yet loaded, we can display a loading spinner or message
     return <div>Loading Monaco Editor...</div>;
   }
 
@@ -78,9 +75,9 @@ const SqlCompiler = () => {
         height="300px"
         language="sql"
         value={code}
-        onChange={(value) => setCode(value)} // Update code state when editor content changes
-        onMount={handleEditorMount} // Initialize the editor
-      
+        onChange={(value) => setCode(value)}
+        onMount={handleEditorMount} 
+        className='EditorPad'
       />
       {hoverError && (
         <div

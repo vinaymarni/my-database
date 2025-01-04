@@ -2,6 +2,10 @@
     height: 100%;
 }
 
+.SqlCompilerPad section{
+    max-height: 100% !important;
+}
+
 .SqlCompilerToolBar{
     display: flex;
     align-items: center;
@@ -12,4 +16,9 @@
 
 .SqlCompilerRunBtn{
     padding: 2px
+}
+
+.EditorPad{
+    height: 100% !important;
+    max-height: 600px;
 }
